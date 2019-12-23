@@ -1,0 +1,5 @@
+USERNAME="name@example.com"
+PASSWD="p4$$w0rd"
+SMTPSERVER="smtps://ssl0.ovh.net:465"
+MAILFROM="name@example.com"
+MAILRCPT="rcpt@example.com"
