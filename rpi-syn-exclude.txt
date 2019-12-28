@@ -1,0 +1,11 @@
+/boot/*
+/dev/*
+/media/*
+/mnt/*
+/proc/*
+/run/*
+/sys/*
+/tmp/*
+/var/cache/*
+/var/lib/samba/private/msg.sock/*
+/opt/retropie/configs/ports/kodi/temp/*
