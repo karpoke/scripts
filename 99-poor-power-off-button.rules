@@ -1,0 +1,2 @@
+# place this file in /etc/udev/rules.d
+ATTRS{idVendor}=="0950", ATTRS{idProduct}=="2544", ACTION=="add", RUN+="/root/poor-power-off-button.sh"
