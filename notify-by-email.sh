@@ -43,7 +43,8 @@ while read -r LINE; do
     echo "$LINE" >> "$FILE"
 done
 
-/usr/bin/curl -s \
+/usr/bin/curl \
+    -s \
     -u "$USERNAME:$PASSWD" \
     "$SMTPSERVER" \
     --mail-from "$MAILFROM" \
