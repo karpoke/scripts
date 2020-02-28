@@ -10,7 +10,15 @@
 # TR_TORRENT_ID
 # TR_TORRENT_NAME
 
-./notify-by-telegram.sh """
+THIS_DIR="$(readlink -f "${BASH_SOURCE%/*}")"
+NOTIFY_SCRIPT="${THIS_DIR}/notify-by-telegram.sh"
+
+if [ ! -x "$NOTIFY_SCRIPT" ]; then
+    echo "Error: cannot run '$NOTIFY_SCRIPT'"
+    exit
+fi
+
+$NOTIFY_SCRIPT """
 Torrent downloaded: $TR_TORRENT_NAME
 Local time: $TR_TIME_LOCALTIME
 """
