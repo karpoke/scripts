@@ -12,7 +12,7 @@ ZIPFILE="$BACKUPDIR/$BACKUPFILE.zip"
 
 /bin/mkdir -p "$BACKUPDIR"
 
-/sbin/iptables-save | /usr/bin/zip > "$ZIPFILE"
+/sbin/iptables-save | /usr/bin/zip -q > "$ZIPFILE"
 echo -e "@ -\n@=$BACKUPFILE" | /usr/bin/zipnote -w "$ZIPFILE"
 
 # delete old backups
