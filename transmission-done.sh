@@ -18,13 +18,13 @@ if [ ! -x "$NOTIFY_SCRIPT" ]; then
     exit
 fi
 
-$NOTIFY_SCRIPT """
-Torrent downloaded: $TR_TORRENT_NAME
-Local time: $TR_TIME_LOCALTIME
-"""
+$NOTIFY_SCRIPT "Downloaded: $TR_TORRENT_NAME"
 
 # other actions
 
 # download subtitles
 # /usr/local/bin/flexget -c .flexget/config.yml execute --tasks subtitles-periscope
+
+# move downloaded torrent
+# transmission-remote --torrent "$TR_TORRENT_ID" --move <dir>
 
