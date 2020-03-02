@@ -1,6 +1,5 @@
 #!/bin/bash
-
-# https://blog.josephscott.org/2011/10/14/timing-details-with-curl/
+# https://github.com/python-telegram-bot/python-telegram-bot/wiki/Performance-Optimizations#server-location
 
 CREDSFILE="$HOME/.tg_auth"
 

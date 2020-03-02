@@ -1,5 +1,5 @@
 #!/bin/bash
-# https://github.com/python-telegram-bot/python-telegram-bot/wiki/Performance-Optimizations#server-location
+# https://blog.josephscott.org/2011/10/14/timing-details-with-curl/
 
 FORMAT="""
             time_namelookup:  %{time_namelookup}
