@@ -36,6 +36,5 @@ TRACKERS="\
 "
 
 MAGNET="magnet:?xt=urn:btih:${HASH}${NAME}${TRACKERS}"
-
-echo "$MAGNET"
+transmission-remote --add "$MAGNET"
 
