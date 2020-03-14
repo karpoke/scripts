@@ -2,11 +2,6 @@
 
 HASH="$1"
 
-if [ "${#HASH}" != 40 ]; then
-    echo "Error: not a valid hash"
-    exit
-fi
-
 shift
 NAME="&dn=$(perl -MURI::Escape -e 'print uri_escape($ARGV[0]);' "$*")"
 
