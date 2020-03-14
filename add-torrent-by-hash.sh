@@ -9,5 +9,10 @@ if [ ! -x "$CONVERT_SCRIPT" ]; then
 fi
 
 MAGNET=$($CONVERT_SCRIPT "$@")
-transmission-remote --add "$MAGNET"
+if [ -z "$MAGNET" ]; then
+    echo "Magnet not found"
+    exit 1
+fi
+
+transmission-remote --add "$MAGNET" >/dev/null && echo "Ok" || echo "Error"
 
