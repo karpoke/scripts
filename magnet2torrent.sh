@@ -12,9 +12,7 @@ aria2c --bt-metadata-only=true --bt-save-metadata=true -q "$1"
 
 HASH=${BASH_REMATCH[1],,}  # also, convert to lowercase (bash +4.0, non-posix)
 if [[ "$1" =~ dn=([^&/]+) ]];then
-  FILENAME=${BASH_REMATCH[1]}
-  if [ -n "$FILENAME" ]; then
-      mv "${HASH}.torrent" "${FILENAME}.torrent"
-  fi
+    FILENAME=${BASH_REMATCH[1]}
+    [ -n "$FILENAME" ] && mv {"${HASH}","${FILENAME}"}.torrent
 fi
 
