@@ -23,7 +23,7 @@ $NOTIFY_SCRIPT "Downloaded: $TR_TORRENT_NAME"
 # other actions
 
 # download subtitles
-# /usr/local/bin/flexget -c .flexget/config.yml execute --tasks subtitles-periscope
+. "$WORKON_HOME/flexget/bin/activate" && flexget --cron execute --task get-subtitles
 
 # move downloaded torrent
 # transmission-remote --torrent "$TR_TORRENT_ID" --move <dir>
