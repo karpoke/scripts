@@ -24,7 +24,7 @@ $NOTIFY_SCRIPT "Downloaded: $TR_TORRENT_NAME"
 # other actions
 
 function download_subtitles () {
-    if find "$TR_TORRENT_DIR/$TR_TORRENT_NAME" -name \*.avi -o -name \*.mkv -o -name \*.mpg -o name \*.mpeg -o -name \*.mp4; then
+    if find "$TR_TORRENT_DIR/$TR_TORRENT_NAME" -name \*.avi -o -name \*.mkv -o -name \*.mpg -o -name \*.mpeg -o -name \*.mp4; then
         $NOTIFY_SCRIPT "Looking for subtitles..."
 
         # shellcheck disable=SC1090
