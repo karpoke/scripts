@@ -1,6 +1,4 @@
-#!/bin/bash
-
-THIS_DIR="$(readlink -f "${BASH_SOURCE%/*}")"
+#!/bin/sh
 
 MAGNET="$*"
 if [ -z "$MAGNET" ]; then
@@ -9,5 +7,5 @@ if [ -z "$MAGNET" ]; then
 fi
 
 transmission-remote --add "$MAGNET" >/dev/null && echo "Ok" || echo "Error"
-"$THIS_DIR/transmission-add-trackers.sh"
+transmission-add-trackers.sh
 

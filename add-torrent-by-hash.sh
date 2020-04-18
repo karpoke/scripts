@@ -1,6 +1,5 @@
-#!/bin/bash
+#!/bin/sh
 
-THIS_DIR="$(readlink -f "${BASH_SOURCE%/*}")"
-MAGNET=$("${THIS_DIR}/hash2magnet.sh" "$@")
-"$THIS_DIR/add-torrent-by-magnet.sh" "$MAGNET"
+MAGNET=$(hash2magnet.sh "$@")
+add-torrent-by-magnet.sh "$MAGNET"
 
