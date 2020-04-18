@@ -19,3 +19,6 @@ wget -Ufirefox "$URL" -O "$FILE" 2>/dev/null
 MAGNET=$(grep -Eo 'magnet:\?[^"]+' "$FILE")
 add-torrent-by-magnet.sh "$MAGNET"
 
+FILENAME="${URL//*\//}"
+notify-by-telegram.sh "$FILENAME" "$KW"
+
