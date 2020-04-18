@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # https://trac.transmissionbt.com/wiki/Scripts
 # https://trac.transmissionbt.com/browser/trunk/extras/send-email-when-torrent-done.sh
@@ -23,7 +23,7 @@ $NOTIFY_SCRIPT "Downloaded: $TR_TORRENT_NAME"
 
 # other actions
 
-function download_subtitles () {
+download_subtitles () {
     if find "$TR_TORRENT_DIR/$TR_TORRENT_NAME" -name \*.avi -o -name \*.mkv -o -name \*.mpg -o -name \*.mpeg -o -name \*.mp4; then
         $NOTIFY_SCRIPT "Looking for subtitles..."
 

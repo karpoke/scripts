@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # https://blog.josephscott.org/2011/10/14/timing-details-with-curl/
 
 FORMAT="""

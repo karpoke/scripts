@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # to restore:
 #   sudo rsync -axHAXv /media/usb5/rpi-backup/ /
@@ -45,3 +45,4 @@ time /usr/bin/rsync \
     / "$RSYNCDIR" >> $LOGFILE
 
 echo "### end: $(date --iso-8601=seconds)" >> $LOGFILE
+

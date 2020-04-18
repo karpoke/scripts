@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 CREDSFILE="$HOME/.mail_auth"
 
-usage () {
+err () {
     echo "ERROR: $CREDSFILE must contain:"
     echo ""
     echo "USERNAME=name@example.com"
@@ -13,15 +13,15 @@ usage () {
 }
 
 if [ ! -r "$CREDSFILE" ]; then
-    usage
+    err
     exit 1
 fi
 
 # shellcheck disable=SC1090
-source "$CREDSFILE"
+. "$CREDSFILE"
 
 if [ -z "$USERNAME" ] || [ -z "$PASSWD" ] || [ -z "$SMTPSERVER" ] || [ -z "$MAILFROM" ] || [ -z "$MAILRCPT" ]; then
-    usage
+    err
     exit 1
 fi
 
@@ -52,3 +52,4 @@ done
     --upload-file "$FILE"
 
 /bin/rm "$FILE"
+

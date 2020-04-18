@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # https://github.com/python-telegram-bot/python-telegram-bot/wiki/Performance-Optimizations#server-location
 
 # Credentials file: ~/.tg_auth
@@ -16,7 +16,7 @@ get_credentials () {
 
     # shellcheck disable=SC1090
     # change this for: grep -cx TOKEN=(.*)
-    source "$CREDSFILE"
+    . "$CREDSFILE"
 
     if [ -z "$TOKEN" ] || [ -z "$ID" ]; then
         logger -t "$(basename "$0")" "Credentials not valid"
