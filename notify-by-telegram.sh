@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # https://github.com/python-telegram-bot/python-telegram-bot/wiki/Performance-Optimizations#server-location
 
 # Credentials file: ~/.tg_auth

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # https://github.com/Entware/Entware/wiki/Using-Transmission
 

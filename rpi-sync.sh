@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # to restore:
 #   sudo rsync -axHAXv /media/usb5/rpi-backup/ /

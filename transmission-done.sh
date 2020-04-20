@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # https://trac.transmissionbt.com/wiki/Scripts
 # https://trac.transmissionbt.com/browser/trunk/extras/send-email-when-torrent-done.sh

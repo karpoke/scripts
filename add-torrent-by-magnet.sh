@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 MAGNET="$*"
 if [ -z "$MAGNET" ]; then
