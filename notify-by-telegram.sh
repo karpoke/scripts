@@ -75,12 +75,12 @@ main () {
 
     if [ -n "$FILEDATA" ]; then
         shift
-        /usr/bin/curl "$ENDPOINT" -vvvv -s -o /dev/null \
+        /usr/bin/curl "$ENDPOINT" -s -o /dev/null \
             -F "chat_id=$ID" \
             -F "caption=$*" \
             -F "$FILEDATA"
    else
-        /usr/bin/curl "$ENDPOINT" -vvvv -s -o /dev/null \
+        /usr/bin/curl "$ENDPOINT" -s -o /dev/null \
             -d "chat_id=$ID" \
             -d "text=$*"
    fi
