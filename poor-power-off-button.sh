@@ -16,5 +16,5 @@
 # LOGFILE="/tmp/poor-power-off-button.log"
 # env >> "$LOGFILE"
 
-logger "Poor power off USB detected. Shutting down..."
+logger -t "$(basename "$0")" "Poor power off USB detected. Shutting down..."
 /sbin/shutdown -h now
