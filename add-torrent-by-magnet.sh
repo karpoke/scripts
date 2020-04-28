@@ -6,6 +6,7 @@ if [ -z "$MAGNET" ]; then
     exit 1
 fi
 
+service transmission-daemon status >/dev/null 2>&1 || service transmission-daemon start
 transmission-remote --add "$MAGNET" >/dev/null && echo "Ok" || echo "Error"
 transmission-add-trackers.sh
 

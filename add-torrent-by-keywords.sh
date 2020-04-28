@@ -22,6 +22,7 @@ TORRENT="/tmp/$KW.torrent"
 wget -q -Ufirefox "$URL" -O "$TORRENT"
 
 
+service transmission-daemon status >/dev/null 2>&1 || service transmission-daemon start
 transmission-remote --add "$TEMPFILE" >/dev/null && echo "Ok" || echo "Error"
 transmission-add-trackers.sh
 notify-by-telegram.sh "$TORRENT" "$KW"
