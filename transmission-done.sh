@@ -25,8 +25,6 @@ $NOTIFY_SCRIPT "Downloaded: $TR_TORRENT_NAME"
 
 download_subtitles () {
     if find "$TR_TORRENT_DIR/$TR_TORRENT_NAME" -name \*.avi -o -name \*.mkv -o -name \*.mpg -o -name \*.mpeg -o -name \*.mp4; then
-        $NOTIFY_SCRIPT "Looking for subtitles..."
-
         # shellcheck disable=SC1090
         . "$WORKON_HOME/flexget/bin/activate" && flexget --cron execute --task get-subtitles
         deactivate
@@ -35,8 +33,6 @@ download_subtitles () {
         SUBTITLEFILE=$(find "$TR_TORRENT_DIR/$TR_TORRENT_NAME" -name \*.srt | head -1)
         if [ -n "$SUBTITLEFILE" ]; then
             $NOTIFY_SCRIPT "$SUBTITLEFILE" "Subtitles for $TR_TORRENT_NAME"
-        else
-            $NOTIFY_SCRIPT "Not found"
         fi
     fi
 }
