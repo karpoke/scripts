@@ -11,7 +11,7 @@ get_credentials () {
 
     if [ ! -r "$CREDSFILE" ]; then
         logger -t "$(basename "$0")" "Credentials file not found"
-        exit 1
+        exit 2
     fi
 
     # shellcheck disable=SC1090
@@ -20,7 +20,7 @@ get_credentials () {
 
     if [ -z "$TOKEN" ] || [ -z "$ID" ]; then
         logger -t "$(basename "$0")" "Credentials not valid"
-        exit 1
+        exit 3
     fi
 }
 
