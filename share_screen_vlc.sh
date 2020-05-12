@@ -2,7 +2,7 @@
 
 # https://wiki.videolan.org/Documentation:Modules/screen/
 
-mapfile -t SCREENS < <(xrandr -q | grep -w connected)
+mapfile -t SCREENS < <(xrandr -q | grep -w connected)  # bash +4.0, non-posix
 
 printf "%s\n" "${SCREENS[@]}" | nl -v 0
 
