@@ -6,6 +6,8 @@
 # api methods: https://wallabag.example.com/api/doc
 # api doc: https://doc.wallabag.org/en/developer/api/readme.html
 
+[ -n "$DEBUG" ] && set -x
+
 setup () {
     TEMPDIR="${HOME}/.wallabag"
     mkdir -p "${TEMPDIR}"
@@ -71,7 +73,7 @@ send_files () {
 }
 
 cleanup () {
-    rm -fr "${HOME}/.wallabag"
+    [ -z "$DEBUG" ] && rm -fr "${HOME}/.wallabag"
 }
 
 main () {
