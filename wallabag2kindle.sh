@@ -41,6 +41,7 @@ get_last_entries () {
     ENTRIES=$(curl -s -G -H "Authorization:Bearer ${ACCESS_TOKEN}" "${API_URL}/api/entries.pdf?since=${LAST_WEEK_TS}")
 
     DATE=$(echo "${ENTRIES}" | jq -r '._embedded.items[].created_at' | xargs | head -1 | cut -c-10)
+    TITLE="Unread articles since ${DATE}"
 
     IDS=($(echo "${ENTRIES}" | jq -r '._embedded.items[].id' | xargs))
     URLS=($(echo "${ENTRIES}" | jq -r '._embedded.items[].url' | xargs))
@@ -68,8 +69,8 @@ combine_entries () {
 }
 
 send_files () {
-    mpack -s "Unread articles for ${DATE}" "${TEMPDIR}/${DATE}.mobi" "${KINDLE_EMAIL}"
-    notify-by-telegram.sh "${TEMPDIR}/${DATE}.epub" "Unread articles for ${DATE}"
+    mpack -s "${TITLE}" "${TEMPDIR}/${DATE}.mobi" "${KINDLE_EMAIL}"
+    notify-by-telegram.sh "${TEMPDIR}/${DATE}.epub" "${TITLE}"
 }
 
 cleanup () {
