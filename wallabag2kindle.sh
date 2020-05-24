@@ -69,8 +69,15 @@ combine_entries () {
         mv "${TEMPDIR}"/*.pdf "${TEMPDIR}/${DATE}.pdf"
     fi
 
-    ebook-convert "${TEMPDIR}/${DATE}.pdf" "${TEMPDIR}/${DATE}.mobi"
-    ebook-convert "${TEMPDIR}/${DATE}.pdf" "${TEMPDIR}/${DATE}.epub"
+    for FORMAT in epub mobi; do
+        ebook-convert \
+            --book-producer "$(basename "$0")" \
+            --comments "${TITLE}" \
+            --pubdate "${DATE}" \
+            --publisher "$USER at $(hostname)" \
+            --title "${TITLE}" \
+            "${TEMPDIR}/${DATE}.pdf" "${TEMPDIR}/${DATE}.${FORMAT}" >/dev/null
+    done
 }
 
 send_files () {
