@@ -63,7 +63,12 @@ combine_entries () {
     # pdftk "${TEMPDIR}"/*.pdf cat output "${TEMPDIR}/${DATE}.pdf"
     # gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dAutoRotatePages=/None -sOutputFile=finished.pdf "${TEMPDIR}"/*.pdf "${TEMPDIR}/${DATE}.pdf"
 
-    pdfunite "${TEMPDIR}"/*.pdf "${TEMPDIR}/${DATE}.pdf"
+    if [ "${#IDS[*]}" -gt 1 ]; then
+        pdfunite "${TEMPDIR}"/*.pdf "${TEMPDIR}/${DATE}.pdf"
+    else
+        mv "${TEMPDIR}"/*.pdf "${TEMPDIR}/${DATE}.pdf"
+    fi
+
     ebook-convert "${TEMPDIR}/${DATE}.pdf" "${TEMPDIR}/${DATE}.mobi"
     ebook-convert "${TEMPDIR}/${DATE}.pdf" "${TEMPDIR}/${DATE}.epub"
 }
