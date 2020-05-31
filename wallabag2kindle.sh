@@ -71,12 +71,13 @@ combine_entries () {
 
     for FORMAT in epub mobi; do
         ebook-convert \
+            "${TEMPDIR}/${DATE}.pdf" "${TEMPDIR}/${DATE}.${FORMAT}" \
             --book-producer "$(basename "$0")" \
             --comments "${TITLE}" \
             --pubdate "${DATE}" \
             --publisher "$USER at $(hostname)" \
             --title "${TITLE}" \
-            "${TEMPDIR}/${DATE}.pdf" "${TEMPDIR}/${DATE}.${FORMAT}" >/dev/null
+            >/dev/null
     done
 }
 
