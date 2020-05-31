@@ -12,6 +12,6 @@ URL=$(wget -q -O- "https://magpi.raspberrypi.org/issues/$NUM/pdf" | grep "the-ma
 MAGPI_FILE="MagPi$NUM.pdf"
 if wget -q "$URL" -O "$MAGPI_FILE"; then
     echo "$((NUM+1))" > "$HOME/.next_magpi"
-    notify-by-telegram "$MAGPI_FILE" "New MagPi $NUM"
+    notify-by-telegram.sh "$MAGPI_FILE" "New MagPi $NUM"
 fi
 
