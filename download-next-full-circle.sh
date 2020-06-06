@@ -11,5 +11,7 @@ URL="https://dl.fullcirclemagazine.org/$FULL_CIRCLE_FILE"
 if wget -q "$URL" -O "$FULL_CIRCLE_FILE"; then
     echo "$((NUM+1))" > "$HOME/.next_full_circle"
     notify-by-telegram.sh "$FULL_CIRCLE_FILE" "New Full Circle $NUM"
+else
+    logger -t "$(basename "$0")" "Error: Full Circle not found" && exit 3
 fi
 
