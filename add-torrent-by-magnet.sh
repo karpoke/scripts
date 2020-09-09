@@ -9,4 +9,5 @@ fi
 service transmission-daemon status >/dev/null 2>&1 || service transmission-daemon start
 transmission-remote --add "$MAGNET" >/dev/null && echo "Ok" || echo "Error"
 transmission-add-trackers.sh
+transmission-prune-torrents.sh
 

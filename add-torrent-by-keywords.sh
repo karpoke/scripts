@@ -29,6 +29,7 @@ service transmission-daemon status >/dev/null 2>&1 || service transmission-daemo
 if transmission-remote --add "$MAGNET" >/dev/null; then
     notify-by-telegram.sh "Found and added $KW"
     transmission-add-trackers.sh
+    transmission-prune-torrents.sh
 else
     logger -t "$(basename "$0")" "Error adding torrent"
 fi
