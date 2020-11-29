@@ -57,7 +57,7 @@ get_file_data () {
         else
             FIELD="document"
         fi
-        DATA="$FIELD=@$REAL_PATH"
+        DATA="$FIELD=@\"$REAL_PATH\""
     fi
     echo "$DATA"
 }
