@@ -15,7 +15,7 @@ get_trackers_list () {
 
 get_torrent_name () {
     TORRENT_ID=$1
-    TORRENT_NAME=$(transmission-remote --torrent "$TORRENT_ID" --info | grep Name | awk '{ print $2 }')
+    TORRENT_NAME=$(transmission-remote --torrent "$TORRENT_ID" --info | grep Name | cut -c9-)
     echo "$TORRENT_NAME"
 }
 
