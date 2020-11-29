@@ -15,7 +15,7 @@ NOTIFY_SCRIPT="${THIS_DIR}/notify-by-telegram.sh"
 WORKON_HOME="$HOME/.virtualenvs"
 
 if [ ! -x "$NOTIFY_SCRIPT" ]; then
-    echo "Error: cannot run '$NOTIFY_SCRIPT'"
+    logger -t "$(basename "$0")" "Error: cannot run '$NOTIFY_SCRIPT'"
     exit
 fi
 
@@ -24,7 +24,9 @@ $NOTIFY_SCRIPT "Downloaded: $TR_TORRENT_NAME"
 # other actions
 
 download_subtitles () {
-    if find "$TR_TORRENT_DIR/$TR_TORRENT_NAME" -name \*.avi -o -name \*.mkv -o -name \*.mpg -o -name \*.mpeg -o -name \*.mp4; then
+    if [ -n "$(find "$TR_TORRENT_DIR/$TR_TORRENT_NAME" -name \*.avi -o -name \*.mkv -o -name \*.mpg -o -name \*.mpeg -o -name \*.mp4)" ]; then
+        logger -t "$(basename "$0")" "Looking for subtitles for $TR_TORRENT_NAME"
+
         # shellcheck disable=SC1090
         . "$WORKON_HOME/flexget/bin/activate" && flexget --cron execute --task get-subtitles
         deactivate
