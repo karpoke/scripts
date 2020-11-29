@@ -39,7 +39,12 @@ download_subtitles () {
     fi
 }
 
+send_ebook () {
+    find "$TR_TORRENT_DIR/$TR_TORRENT_NAME" \( -name \*.pdf -o -name \*.epub \) -exec "$NOTIFY_SCRIPT" '{}' "$TR_TORRENT_NAME" \;
+}
+
 download_subtitles
+send_ebook
 
 # move downloaded torrent
 # transmission-remote --torrent "$TR_TORRENT_ID" --move <dir>
