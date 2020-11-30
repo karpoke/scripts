@@ -27,10 +27,10 @@ transmission-remote --list |
             grep -E ".jpg$|.nfo$|.txt$|.url$" |
             awk -F: '{print $1}' |
             while read -r FILE_ID; do
-                tranmission-remote -t "$TORRENT_ID" --no-get "$FILE_ID"
-		TORRENT_NAME=$(get_torrent_name "$TORRENT_ID")
-		FILE_NAME=$(get_torrent_file_name "$TORRENT_ID" "$FILE_ID")
-		logger -t "$(basename "$0")" "Torrent: $TORRENT_NAME Discard file: $FILE_NAME"
+                transmission-remote -t "$TORRENT_ID" --no-get "$FILE_ID"
+                TORRENT_NAME=$(get_torrent_name "$TORRENT_ID")
+                FILE_NAME=$(get_torrent_file_name "$TORRENT_ID" "$FILE_ID")
+                logger -t "$(basename "$0")" "Torrent: $TORRENT_NAME Discard file: $FILE_NAME"
             done
     done
 
